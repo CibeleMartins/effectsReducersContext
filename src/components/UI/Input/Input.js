@@ -3,23 +3,24 @@ import React, { useRef, useImperativeHandle } from 'react';
 import styles from './Input.module.css';
 
 
-const Input = React.forwardRef(({type, id, value, onChange, onBlur, isValid, label, ref})=> {
+const Input = React.forwardRef(({type, id, value, onChange, onBlur, isValid, label}, ref)=> {
 
     console.log('estou aqui')
 
     const inputRef = useRef();
 
-    const activated = ()=> {
+    // const activated = ()=> {
 
-        inputRef.current.focus();
-    } 
+    //     inputRef.current.focus();
 
-    useImperativeHandle(ref, ()=> {
+    // };
 
-        return {
-            focus: activated,
-        };
-    });
+    useImperativeHandle(ref, ()=> ({
+
+            focus: ()=> {
+                inputRef.current.focus();
+            },
+    }));
 
     return (
         <div
