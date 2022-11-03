@@ -14,9 +14,7 @@ const emailReducer = (state, action)=> {
   };
 
   if(action.type === "INPUT_BLUR") {
-    console.log(state.val)
     return {value: state.value, isValid: state.value.includes('@')}
-
   }
 
   return {value: '', isValid: false}

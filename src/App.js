@@ -1,5 +1,4 @@
 import React, { useContext} from 'react';
-
 import AuthContext from './components/context/auth-context';
 
 import Login from './components/Login/Login';
@@ -9,7 +8,7 @@ import MainHeader from './components/MainHeader/MainHeader';
 function App() {
 
   const authContext = useContext(AuthContext)
-  
+
   return (
     <>
       <MainHeader />
