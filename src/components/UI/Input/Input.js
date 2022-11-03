@@ -1,9 +1,25 @@
+import React, { useRef, useImperativeHandle } from 'react';
+
 import styles from './Input.module.css';
 
 
-const Input = ({type, id, value, onChange, onBlur, htmlFor, isValid, label})=> {
+const Input = React.forwardRef(({type, id, value, onChange, onBlur, isValid, label, ref})=> {
 
     console.log('estou aqui')
+
+    const inputRef = useRef();
+
+    const activated = ()=> {
+
+        inputRef.current.focus();
+    } 
+
+    useImperativeHandle(ref, ()=> {
+
+        return {
+            focus: activated,
+        };
+    });
 
     return (
         <div
@@ -13,6 +29,7 @@ const Input = ({type, id, value, onChange, onBlur, htmlFor, isValid, label})=> {
         >
             <label htmlFor={id}>{label}</label>
             <input
+            ref={inputRef}
             className={styles.inputClass}
             value={value}
             type={type}
@@ -23,6 +40,6 @@ const Input = ({type, id, value, onChange, onBlur, htmlFor, isValid, label})=> {
         </div>
       
     );
-};
+});
 
 export default Input;

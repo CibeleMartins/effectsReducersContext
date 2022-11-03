@@ -8,7 +8,7 @@ const Navigation = () => {
   return (
     <nav className={classes.nav}>
       <ul>
-        {ctx.isLogged && (
+        {ctx.isLoggedIn && (
           <li>
             <a href="/">Users</a>
           </li>
