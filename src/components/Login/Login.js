@@ -60,7 +60,7 @@ const Login = (props) => {
    const temp = setTimeout(()=> {
       console.log('Check form')
       setFormIsValid(
-        emailValid && passwordValid
+        emailValid && passwordValid && 
       );
     }, 500)
 
